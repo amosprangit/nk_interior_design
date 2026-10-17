@@ -1,7 +1,7 @@
 // ---- Edit this file to rebrand the site ----
 export const BRAND = {
-  name: 'Atelier Nova',
-  tagline: 'Interior design studio'
+  name: 'Nikhil Agarwal Interior Design',
+  tagline: 'Interior design and architecture based in India',
 };
 
 const u = (id, w = 2400) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=85`;
