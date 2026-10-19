@@ -43,23 +43,26 @@ img, video { display: block; max-width: 100%; }
 .screen__bg, .projects__hero { background-size: cover; background-position: center; }
 .screen__bg { position: absolute; inset: 0; animation: settle 2.4s ease-out both; }
 @keyframes settle { from { transform: scale(1.06); opacity: 0.4; } to { transform: scale(1); opacity: 1; } }
-.screen__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 9, 7, 0.45) 0%, rgba(10, 9, 7, 0.12) 40%, rgba(10, 9, 7, 0.72) 100%); }
+.screen__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 9, 7, 0.55) 0%, rgba(10, 9, 7, 0.12) 40%, rgba(10, 9, 7, 0.72) 100%); }
 
-.screen__top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: calc(var(--pad) * 0.6 + env(safe-area-inset-top, 0px)) var(--pad) 0; }
-.brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 22px; letter-spacing: 0.04em; }
-.back { font-size: 15px; padding: 8px 0; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+/* Top bar: logo on the left, tabs on the right */
+.screen__top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: calc(var(--pad) * 0.6 + env(safe-area-inset-top, 0px)) var(--pad) 0; }
+.brand { display: inline-flex; align-items: center; }
+.brand img { display: block; height: 46px; width: auto; }
+/* If your logo is dark and disappears on the photos, uncomment the next line to turn it white:
+.brand img { filter: brightness(0) invert(1); } */
+
+.tabs { display: flex; flex-wrap: wrap; gap: 8px clamp(18px, 3vw, 44px); }
+.tab { position: relative; display: block; padding: 6px 0; font-size: 15px; letter-spacing: 0.02em; }
+.tab::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.45s var(--ease); }
+.tab:hover::after, .tab:focus-visible::after { transform: scaleX(1); }
+
+.back { display: inline-block; margin-top: 22px; font-size: 15px; padding: 8px 0; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
 .back:hover { border-color: currentColor; }
 
 .screen__body { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(28px, 6vh, 64px); padding: 0 var(--pad) calc(var(--pad) * 0.8 + env(safe-area-inset-bottom, 0px)); }
 .screen__intro h1 { font-family: var(--serif); font-weight: 300; font-size: clamp(44px, 9vw, 120px); line-height: 1; letter-spacing: -0.01em; }
 .screen__intro p { margin-top: 14px; font-size: clamp(15px, 1.6vw, 18px); opacity: 0.85; }
-
-.tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0 clamp(16px, 3vw, 40px); }
-.tab { position: relative; display: block; padding: 18px 0 8px; border-top: 1px solid rgba(250, 248, 244, 0.4); font-family: var(--serif); font-size: clamp(26px, 3.2vw, 44px); line-height: 1.2; }
-.tab::before { content: ''; position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: var(--on-photo); transform: scaleX(0); transform-origin: left; transition: transform 0.55s var(--ease); }
-.tab span { display: inline-block; transition: transform 0.55s var(--ease); }
-.tab:hover::before, .tab:focus-visible::before { transform: scaleX(1); }
-.tab:hover span, .tab:focus-visible span { transform: translateX(10px); }
 
 /* ---------- Projects ---------- */
 .projects__hero { position: relative; min-height: 46vh; min-height: 46svh; color: var(--on-photo); display: flex; flex-direction: column; justify-content: space-between; }
@@ -103,9 +106,8 @@ img, video { display: block; max-width: 100%; }
   .project:nth-child(even) .carousel { order: 0; }
 }
 @media (max-width: 640px) {
-  .tabs { grid-template-columns: repeat(2, 1fr); row-gap: 6px; }
-  .tab { padding-top: 14px; }
-  .brand { font-size: 19px; }
+  .brand img { height: 38px; }
+  .tabs { width: 100%; justify-content: space-between; gap: 6px 16px; }
   .carousel__viewport { aspect-ratio: 1 / 1; }
   .carousel__btn { width: 40px; height: 40px; }
   .carousel__btn--prev { left: 8px; }
@@ -115,7 +117,6 @@ img, video { display: block; max-width: 100%; }
 @media (max-height: 520px) and (orientation: landscape) {
   .screen__intro h1 { font-size: clamp(32px, 8vh, 56px); }
   .screen__body { gap: 16px; }
-  .tab { font-size: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0s !important; transition-duration: 0.01ms !important; }

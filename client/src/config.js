@@ -3,6 +3,7 @@ export const BRAND = {
   name: 'Nikhil Agarwal Interior Design',
   tagline: 'Interior design and architecture based in India',
 };
+export const LOGO = '/logo.png';
 
 const u = (id, w = 2400) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=85`;
 
