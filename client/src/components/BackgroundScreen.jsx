@@ -18,9 +18,6 @@ export default function BackgroundScreen({
       <div className="screen__shade" />
 
       <header className="screen__top">
-        <Link to="/" className="brand" aria-label={`${BRAND.name} home`}>
-          <img src={LOGO} alt={BRAND.name} />
-        </Link>
         <nav className="tabs" aria-label="Main">
           {tabs.map((t) => (
             <Link key={t.slug} to={t.to} className="tab">
@@ -31,6 +28,9 @@ export default function BackgroundScreen({
       </header>
 
       <section className="screen__body">
+        <Link to="/" className="brand" aria-label={`${BRAND.name} home`}>
+          <img src={LOGO} alt={BRAND.name} />
+        </Link>
         <div className="screen__intro">
           <h2>{title}</h2>
           {subtitle && <p>{subtitle}</p>}

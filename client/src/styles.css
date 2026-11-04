@@ -46,7 +46,7 @@ img, video { display: block; max-width: 100%; }
 .screen__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 9, 7, 0.55) 0%, rgba(10, 9, 7, 0.12) 40%, rgba(10, 9, 7, 0.72) 100%); }
 
 /* Top bar: logo on the left, tabs on the right */
-.screen__top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: calc(var(--pad) * 0.6 + env(safe-area-inset-top, 0px)) var(--pad) 0; }
+.screen__top { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; padding: calc(var(--pad) * 0.6 + env(safe-area-inset-top, 0px)) var(--pad) 0; }
 .brand { display: inline-flex; align-items: center; }
 .brand img { display: block; height: 46px; width: auto; }
 /* If your logo is dark and disappears on the photos, uncomment the next line to turn it white:

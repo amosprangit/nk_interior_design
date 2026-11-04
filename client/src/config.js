@@ -1,7 +1,7 @@
 // ---- Edit this file to rebrand the site ----
 export const BRAND = {
   name: 'Nikhil Agarwal Interior Design',
-  tagline: 'Interior design and architecture based in India',
+  // tagline: 'Interior design and architecture based in India',
 };
 export const LOGO = '/logo.png';
 
